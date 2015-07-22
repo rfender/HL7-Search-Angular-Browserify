@@ -1,0 +1,15 @@
+
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+a {
+  color: #666666;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+}
