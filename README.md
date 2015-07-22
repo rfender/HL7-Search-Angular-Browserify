@@ -26,4 +26,4 @@ This example includes a directive, service, some controllers and views/partials.
 
 ## Justification:
 
-The reasoning behind using [Browserify](http://browserify.org/) is to allow the use of CommonJS modules using require() to open up a world of possibilities in the npm repository. Specifically to use an HL7 parser.
+The reasoning behind using [Browserify](http://browserify.org/) is to allow the use of CommonJS modules using require() to open up a world of possibilities in the npm repository. Specifically to use an HL7 parser. This was my first foray into node.js/CommonJS style of architecting an AngularJS application. Not sure what I think about it yet.
