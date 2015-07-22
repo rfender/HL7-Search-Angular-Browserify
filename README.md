@@ -1,11 +1,10 @@
-# Frickle
-
-A Boilerplate App for building Apps with Mongoose, SASS, Angular, Gulp, Browserify and Express.
+# HL7 Search
+## Using AngularJS, Browserify and Gulp
 
 ## Installation
 
-- git clone http://github.com/Hyra/Frickle.git myApp
-- cd myApp
+- git clone https://github.com/rfender/HL7-Search-Angular-Browserify.git HL7-Searchinator
+- cd HL7-Searchinator
 - npm install
 - gulp
 
@@ -18,7 +17,6 @@ A sensible default app that ..
   - uses Browserify to build the client code from the `client` to the `public` folder
   - uses **$stateProvider** for the (HTML5 PushState supported) routing
   - uses **SASS** as pre processor
-  - uses an **.editorConfig** file for everyone to enjoy
   - uses a **.jshintrc**
   - uses **Gulp** as build tool that does:
   	- view compiling
@@ -28,9 +26,3 @@ A sensible default app that ..
   	- jshinting your beautiful code
 
 It comes with an example controller, service, directive and two states using stateprovider so you can see how things work together.
-
-## API
-
-In `server.js` you will notice an **USE_API** flag you can set. When you set this to true, Frickle will automatically load all your models that live in `api/models`, connect to your MongoDB based on your ENV settings and load up the API routes from `api/routes.js`.
-
-There's an example API Controller with corresponding Model so you can start building straight away.
