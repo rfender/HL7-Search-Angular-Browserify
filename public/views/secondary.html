@@ -1,82 +1,20 @@
 <div class="container">
   
   <h1>{{ title }}</h1>
-  <patient></patient>
   
   <!-- <div>{{ hl7data }}</div> -->
   <form class="form-horizontal search-form">
   	<div class="form-group">
   		<label class="col-sm-2 control-label">Search:</label>
   		<div class="col-sm-10">
-  			<input type="text" class="form-control" ng-model="searchValue" placeholder="enter search text"></input>
+  			<input type="text" class="form-control" ng-model="global.searchValue" placeholder="enter search text"></input>
   		</div>
   	</div>
   </form>
 
-	<p>{{ searchValue }}</p>
+  <!-- <patient ng-repeat="record in records | patientHighlight: global.searchValue " ng-model="record"></patient> -->
+  <patient ng-repeat="record in records | filter: global.searchValue " ng-model="record"></patient>
 
-  <form class="form-horizontal search-result">
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">Patient Identification #:</label>
-	    <div class="col-sm-10">
-	      <p class="form-control-static">{{ record.pid }}</p>
-	    </div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">Last Name:</label>
-	    <div class="col-sm-10">
-	      <p class="form-control-static">{{ record.lastName }}</p>
-	    </div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">First Name:</label>
-	    <div class="col-sm-10">
-	      <p class="form-control-static">{{ record.firstName }}</p>
-	    </div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">MI:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.middle }}</p>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">Type of test:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.testType }}</p>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">Overall Cholesterol:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.hdlCholesterol.value }} {{ record.hdlCholesterol.units }}</p>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">HDL Cholesterol:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.hdlCholesterol.value }} {{ record.hdlCholesterol.units }}</p>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">VLDL Cholesterol:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.vldl.value }} {{ record.vldl.units }}</p>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">LDL Cholesterol:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.ldl.value }} {{ record.ldl.units }}</p>
-  		</div>
-  	</div>
-  	<div class="form-group">
-  		<label class="col-sm-2 control-label">Triglycerides:</label>
-  		<div class="col-sm-10">
-  			<p class="form-control-static">{{ record.triglycerides.value }} {{ record.triglycerides.units }}</p>
-  		</div>
-  	</div>
-  	
-  </form>
+  <div ng-repeat="item in rawhl7data | filter:global.searchValue" ng-bind-html="item.text | highlight:global.searchValue"></div>
   
 </div>

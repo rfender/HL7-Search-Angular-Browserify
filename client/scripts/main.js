@@ -8,6 +8,8 @@ var app = angular.module('Hl7App', [uiRoute]);
 require('bootstrap');
 require('./services/HL7').inject(app);
 require('./directives/PatientPod').inject(app);
+require('./filters/textHighlight').inject(app);
+require('./filters/objectHighlight').inject(app);
 
 app.config(function($locationProvider, $stateProvider) {
 
@@ -38,6 +40,7 @@ app.config(function($locationProvider, $stateProvider) {
         return HL7Service.parse(rawhl7data);
       },
       hl7Models: function(HL7Service, hl7) {
+        console.log('hl7Models');
         return HL7Service.convertToModels(hl7);
       }
     }
