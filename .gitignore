@@ -2,4 +2,7 @@
 node_modules/
 api/
 public/*
+
+# dont't ignore these specific files in the directories that are being ignored
 !public/sample.hl7
+!node_modules/simple-hl7/*
