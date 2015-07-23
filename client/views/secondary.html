@@ -1,9 +1,82 @@
 <div class="container">
-  <a ui-sref="home">Home page</a> / <a ui-sref="second">Second page</a>
   
-  <hr />
+  <h1>{{ title }}</h1>
+  <patient></patient>
   
-  <h1>I'm a secondary page</h1>
+  <!-- <div>{{ hl7data }}</div> -->
+  <form class="form-horizontal search-form">
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">Search:</label>
+  		<div class="col-sm-10">
+  			<input type="text" class="form-control" ng-model="searchValue" placeholder="enter search text"></input>
+  		</div>
+  	</div>
+  </form>
+
+	<p>{{ searchValue }}</p>
+
+  <form class="form-horizontal search-result">
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">Patient Identification #:</label>
+	    <div class="col-sm-10">
+	      <p class="form-control-static">{{ record.pid }}</p>
+	    </div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">Last Name:</label>
+	    <div class="col-sm-10">
+	      <p class="form-control-static">{{ record.lastName }}</p>
+	    </div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">First Name:</label>
+	    <div class="col-sm-10">
+	      <p class="form-control-static">{{ record.firstName }}</p>
+	    </div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">MI:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.middle }}</p>
+  		</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">Type of test:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.testType }}</p>
+  		</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">Overall Cholesterol:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.hdlCholesterol.value }} {{ record.hdlCholesterol.units }}</p>
+  		</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">HDL Cholesterol:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.hdlCholesterol.value }} {{ record.hdlCholesterol.units }}</p>
+  		</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">VLDL Cholesterol:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.vldl.value }} {{ record.vldl.units }}</p>
+  		</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">LDL Cholesterol:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.ldl.value }} {{ record.ldl.units }}</p>
+  		</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="col-sm-2 control-label">Triglycerides:</label>
+  		<div class="col-sm-10">
+  			<p class="form-control-static">{{ record.triglycerides.value }} {{ record.triglycerides.units }}</p>
+  		</div>
+  	</div>
+  	
+  </form>
   
-  Do with me what you want.
 </div>

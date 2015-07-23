@@ -36,6 +36,9 @@ gulp.task('lint', function() {
 
 // Styles task
 gulp.task('styles', function() {
+  gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+  .pipe(gulp.dest('public/css/'));
+
   gulp.src('client/styles/*.scss')
   // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
   .pipe(sass({onError: function(e) { console.log(e); } }))
@@ -43,6 +46,7 @@ gulp.task('styles', function() {
   .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
   // These last two should look familiar now :)
   .pipe(gulp.dest('public/css/'));
+
 });
 
 // Browserify task
@@ -71,22 +75,23 @@ gulp.task('watch', ['serve', 'lint'], function() {
   // Start live reload server
   refresh.listen();
 
-  // Watch our scripts, and when they change run lint and browserify
+  // When scripts change, lint and browserify them
   gulp.watch(['client/scripts/*.js', 'client/scripts/**/*.js'],[
     'lint',
     'browserify'
   ]);
 
-  // Watch our sass files
+  // If sass files change, compile them
   gulp.watch(['client/styles/**/*.scss'], [
     'styles'
   ]);
 
-  // Watch view files
+  // If view files change, move them
   gulp.watch(['client/**/*.html'], [
     'views'
   ]);
 
+  // If stuff changes in the public folder, refresh the express
   gulp.watch('./public/**').on('change', refresh.changed);
 
 });

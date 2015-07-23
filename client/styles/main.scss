@@ -13,3 +13,17 @@ a {
     text-decoration: underline;
   }
 }
+
+.search-result {
+	background-color: #e1e7f1;
+}
+
+.search-form {
+	margin-bottom: 20px;
+}
+
+/* Bootstrap overrides */
+
+.form-group {
+	margin-bottom: 0;
+}

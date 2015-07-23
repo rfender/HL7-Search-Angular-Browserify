@@ -1,3 +1,4 @@
 # don't checkin the node-modules directory or it's contents
 node_modules/
 api/
+public/*

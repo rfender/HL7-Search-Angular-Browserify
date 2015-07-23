@@ -3,26 +3,44 @@
 require('angular');
 
 var uiRoute = require('angular-ui-router');
-var app = angular.module('MyApp', [uiRoute]);
+var app = angular.module('Hl7App', [uiRoute]);
 
 require('bootstrap');
-require('./services/Auth').inject(app);
-require('./directives/ExampleDirective').inject(app);
+require('./services/HL7').inject(app);
+require('./directives/PatientPod').inject(app);
 
 app.config(function($locationProvider, $stateProvider) {
 
   $locationProvider.html5Mode(true);
 
   $stateProvider
+
+  // Home screen. Useless other than to show an example of routing. Wow.
   .state('home', {
     url: '/',
     templateUrl: 'views/home.html',
-    controller: require('./controllers/ExampleCtrl').inject(app)
+    controller: require('./controllers/HomeCtrl').inject(app)
   })
-  .state('second', {
+
+  // This state requires retrieval of the HL7 records and conversion to a
+  // readable state before we display them on screen.
+  .state('viewData', {
     url: '/second-page',
-    controller: require('./controllers/ExampleCtrl').inject(app),
-    templateUrl: 'views/secondary.html'
+    controller: require('./controllers/ViewDataCtrl').inject(app),
+    templateUrl: 'views/secondary.html',
+    resolve: {
+      rawhl7data: function(HL7Service) {
+        console.log('viewData resolve');
+        return HL7Service.load();
+      },
+      hl7: function(HL7Service, rawhl7data) {
+        console.log('viewData resolve parsedHL7data');
+        return HL7Service.parse(rawhl7data);
+      },
+      hl7Models: function(HL7Service, hl7) {
+        return HL7Service.convertToModels(hl7);
+      }
+    }
   });
 
 });
