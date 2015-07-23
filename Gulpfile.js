@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     refresh = require('gulp-livereload'),
     nodemon = require('gulp-nodemon');
 
+// Local webserver: Express
 var expressServer = require('./server');
 gulp.task('serve_', function() {
   console.log('Server');

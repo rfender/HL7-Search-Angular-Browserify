@@ -1,10 +1,10 @@
 {
-  "name": "frickle",
+  "name": "HL7 Read and Search",
   "version": "0.0.1",
-  "description": "Boilerplate App for building Apps with Mongoose, SASS, Angular, Gulp, Browserify and Express.",
+  "description": "Personal demo for myself to try my hand at writing an AngularJS app in the CommonJS style using Browserify along with Gulp.",
   "main": "server.js",
-  "author": "Stef van den Ham <stef@mindthecode.com>",
-  "repository": "https://github.com/Hyra/frickle.git",
+  "author": "Rob Fender",
+  "repository": "https://github.com/rfender/HL7-Search-Angular-Browserify.git",
   "dependencies": {
     "angular": "~1.3.0",
     "angular-ui-router": "~0.2.11",
