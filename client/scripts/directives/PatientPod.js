@@ -19,7 +19,8 @@ exports.directive = function() {
     replace: true,
     templateUrl: '../views/patient.html',
     link: function(scope, element, attrs, ctrl) {
-      console.log(element);
+      // not doing anything here. 
+      console.log('hello');
     }
   };
 };

@@ -6,11 +6,15 @@ exports.inject = function(app) {
   return exports.controller;
 };
 
-exports.controller = function($scope, $state) {
+exports.controller = function($scope, $state, HL7Service) {
   $scope.testvar = 'Aap';
 
+  /**
+   * This just takes the user to the next page. Ziiing.
+   */
   $scope.start = function() {
     console.log('start()');
     $state.go('viewData');
   };
+
 };

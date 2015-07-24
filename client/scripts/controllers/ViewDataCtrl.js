@@ -8,6 +8,8 @@ exports.inject = function(app) {
 exports.controller = function($scope, $state, rawhl7data, hl7Models) {
 
 	$scope.title = 'HL7 Viewer';
+	$scope.showRawHL7 = false;
+	$scope.viewRawBtnLabel = ($scope.showRawHL7) ? 'Hide raw HL7' : 'Show raw HL7';
 	$scope.global = {
     searchValue: ''
   };
@@ -17,6 +19,13 @@ exports.controller = function($scope, $state, rawhl7data, hl7Models) {
 	// To reduce $scope soup, let's bind to one object. This also helps
 	// in two-way databinding (atleast it did a couple of years ago).
   $scope.records = hl7Models;
-	//$scope.record = hl7Models[2];
+	
+	var showRawFlag = false;
+	$scope.showHideRawHL7 = function() {
+		this.showRawHL7 = !this.showRawHL7;
+
+		this.viewRawBtnLabel = (this.showRawHL7) ? 'Hide raw HL7' : 'Show raw HL7';
+
+	}
 	
 };

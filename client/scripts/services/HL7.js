@@ -11,23 +11,22 @@ exports.factory = function($http) {
 
   return {
     load: function() {
-      console.log('HL7Service.load()');
-      return $http.get('sample.hl7');
+      // Return a promise to be handled elsewhere
+      return $http.post('/api/hl7');
     },
     parse: function(data) {
-      console.log(data.data);
-      
-      //console.log(hl7);
+      // Use the hl7 library's Parser module to parse the hl7
       var parser = new hl7.Parser();
 
-      //console.log(parser);
       var msg = parser.parse(data.data.toString())
-      console.log('msg:',msg);
       return msg;
     },
+
+    /**
+     * This method takes the hl7 message and transforms it into an object
+     */
     convertToModels: function(records) {
       var models = [];
-      console.log('--',records);
       // Traversing the segment like this is ugly, but without having a proper
       // HL7 parser, not sure at this time what a better solution might be.
       for (var i = 0; i < records.length; i++) {
@@ -46,7 +45,6 @@ exports.factory = function($http) {
 
         models.push(model);
       }
-      console.log('--- ',models);
       return models;
     }
   };

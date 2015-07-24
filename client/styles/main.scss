@@ -14,13 +14,23 @@ a {
   }
 }
 
+/* This is the class for the patient directive */
+.patient-container {
+	border-bottom: 1px solid #dddddd;
+}
+
 .search-result {
-	background-color: #e1e7f1;
-  margin: 5px 5px;
+  margin: 0px 5px 5px 0px;
+  font-size: 12px;
 }
 
 .search-form {
 	margin-bottom: 20px;
+}
+
+.raw-hl7 {
+	word-wrap: break-word;
+	border-left: 1px solid #DDDDDD;
 }
 
 /* this class applies a background color to the searched for text */
@@ -29,10 +39,53 @@ a {
   font-style: italic;
 }
 
+.animate-thin { 
+  -webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.animate-wide { 
+  -webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+
+
+/* ---------------------------- *\
+			# Utilities
+\* ---------------------------- */
+
+
+
 /* ---------------------------- *\
       # Bootstrap overrides
 \* ---------------------------- */
 
 .form-group {
 	margin-bottom: 0;
+}
+
+.form-horizontal .control-label,
+.form-control-static {
+	min-height: 0;
+  padding-top: 0;
+}
+
+.control-label.search-label {
+	text-align: left;
+}
+
+.form-horizontal .form-group {
+	margin-left: 0;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus { 
+	outline: none;
+	outline-style: none;
 }

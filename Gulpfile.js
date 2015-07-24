@@ -3,12 +3,15 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
     browserify = require('browserify'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     refresh = require('gulp-livereload'),
-    nodemon = require('gulp-nodemon');
+    nodemon = require('gulp-nodemon'),
+    uglify = require('gulp-uglify'),
+    clean = require('gulp-clean');
 
 // Local webserver: Express
 var expressServer = require('./server');
@@ -26,7 +29,14 @@ gulp.task('serve', function () {
 });
 
 // Dev task
-gulp.task('dev', ['views', 'styles', 'lint', 'browserify', 'watch'], function() {});
+gulp.task('dev', ['clean', 'sample', 'views', 'styles', 'lint', 'browserify', 'watch'], function() {});
+
+// Clean out the public directory
+gulp.task('clean', function() {
+  console.log('Cleaning public ...');
+  return gulp.src('public/js/*.js', {read: false})
+        .pipe(clean());
+});
 
 // JSLint task
 gulp.task('lint', function() {
@@ -37,8 +47,8 @@ gulp.task('lint', function() {
 
 // Styles task
 gulp.task('styles', function() {
-  gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
-  .pipe(gulp.dest('public/css/'));
+  gulp.src('node_modules/bootstrap/dist/fonts/*')
+  .pipe(gulp.dest('public/fonts/'));
 
   gulp.src('client/styles/*.scss')
   // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
@@ -55,7 +65,10 @@ gulp.task('browserify', function() {
   var bundleStream = browserify({
     entries: ['./client/scripts/main.js'],
     debug: true
-  }).bundle().pipe(source('core.js'));
+  })
+  .bundle()
+  .pipe(source('core.js'));
+
   return bundleStream.pipe(gulp.dest('./public/js'));
 });
 
@@ -70,6 +83,12 @@ gulp.task('views', function() {
   gulp.src('client/views/**/*')
   // Will be put in the public/views folder
   .pipe(gulp.dest('public/views/'));
+});
+
+// Sample task
+gulp.task('sample', function() {
+  gulp.src('client/sample.hl7')
+  .pipe(gulp.dest('public/'));
 });
 
 gulp.task('watch', ['serve', 'lint'], function() {

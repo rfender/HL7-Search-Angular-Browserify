@@ -6,30 +6,26 @@
 'use strict';
 
 exports.inject = function(app) {
-  app.filter('patientHighlight', exports.filter);
+  app.filter('patientHighlight', exports.patientComponentFilter);
   return exports.filter;
 };
 
-exports.filter = function($sce) {
+exports.patientPropertyFilter = function() {
   return function(patients, phrase) {
     if (phrase) {
-      
-      var result = [];
+
       angular.forEach(patients, function (patient, key) {
         angular.forEach(patient, function (value, key2) {
-          if (value === phrase) {
-            result.push(patient);
-          }
+          // if (value === phrase) {
+          //   result.push(patient);
+          // }
+          value = value.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlight">$1</span>');
+          return value;
         })
       });
-      
-      // Return the array of patients that have a property value
-      // that matches the search
-      return result;
     
     }
 
-    // If no patient is found with that property value, return them all
-    return patients;
   };
+
 };

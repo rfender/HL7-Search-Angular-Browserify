@@ -8,8 +8,9 @@ var app = angular.module('Hl7App', [uiRoute]);
 require('bootstrap');
 require('./services/HL7').inject(app);
 require('./directives/PatientPod').inject(app);
-require('./filters/textHighlight').inject(app);
+require('./directives/PatientVis').inject(app);
 require('./filters/objectHighlight').inject(app);
+require('./filters/textHighlight').inject(app);
 
 app.config(function($locationProvider, $stateProvider) {
 
@@ -32,15 +33,12 @@ app.config(function($locationProvider, $stateProvider) {
     templateUrl: 'views/secondary.html',
     resolve: {
       rawhl7data: function(HL7Service) {
-        console.log('viewData resolve');
         return HL7Service.load();
       },
       hl7: function(HL7Service, rawhl7data) {
-        console.log('viewData resolve parsedHL7data');
         return HL7Service.parse(rawhl7data);
       },
       hl7Models: function(HL7Service, hl7) {
-        console.log('hl7Models');
         return HL7Service.convertToModels(hl7);
       }
     }
