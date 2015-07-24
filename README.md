@@ -21,6 +21,7 @@
   	- browserify stuff
   	- clean build directory
   	- jshinting the code
+  - uses Express as local web and api server 
 
 This example includes a directive, service, some controllers and views/partials.
 
