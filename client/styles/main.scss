@@ -14,9 +14,22 @@ a {
   }
 }
 
+.row-count {
+	font-size: 12px;
+	color: #888888;
+}
+
+.hr-short {
+	margin-top: 5px;
+}
+
 /* This is the class for the patient directive */
 .patient-container {
 	border-bottom: 1px solid #dddddd;
+}
+
+.search-bar {
+	padding: 0;
 }
 
 .search-result {
@@ -26,11 +39,15 @@ a {
 
 .search-form {
 	margin-bottom: 20px;
+	padding-left: 0px;
 }
 
 .raw-hl7 {
 	word-wrap: break-word;
 	border-left: 1px solid #DDDDDD;
+	background-color: #EEEEEE;
+	font-size: 13px;
+	padding: 15px;
 }
 
 /* this class applies a background color to the searched for text */

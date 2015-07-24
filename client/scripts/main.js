@@ -30,7 +30,7 @@ app.config(function($locationProvider, $stateProvider) {
   .state('viewData', {
     url: '/second-page',
     controller: require('./controllers/ViewDataCtrl').inject(app),
-    templateUrl: 'views/secondary.html',
+    templateUrl: 'views/viewData.html',
     resolve: {
       rawhl7data: function(HL7Service) {
         return HL7Service.load();
