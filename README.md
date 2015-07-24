@@ -23,7 +23,14 @@
   	- jshinting the code
   - uses Express as local web and api server 
 
-This example includes a directive, service, some controllers and views/partials.
+## Demonstrates:
+ - use of Angular
+   + model(s)
+   + views/partials/templates
+   + directives
+   + services (specifically making a POST call and handling the return)
+ - use of responsive CSS (Bootstrap in this case)
+ - displaying and using HL7 data (node simple-hl7)
 
 ## Justification:
 
