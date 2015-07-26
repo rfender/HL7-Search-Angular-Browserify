@@ -26,4 +26,4 @@ OBX|1|NM|JHDL^HDL Cholesterol (CAD)|1|62|CD:289^mg/dL|>40^>40|""||""|F|||2008051
 OBX|2|NM|JTRIG^Triglyceride (CAD)|1|72|CD:5^mg/dL|35-150^35^150|""||""|F|||20080511103500|||^^^""|
 OBX|3|NM|JVLDL^VLDL-C (calc - CAD)|1|14|CD:800^mg/dL||""||""|F|||20080511103500|||^^^""|
 OBX|4|NM|JLDL^LDL-C (calc - CAD)|1|134|CD:32^mg/dL|0-100^0^100|H||""|F|||20080511103500|||^^^""|
-OBX|5|NM|JCHO^Cholesterol (CAD)|1|210|CD:120^mg/dL|90-200^90^200|H||""|F|||20080511103500|||^^^""|
+OBX|5|NM|JCHO^Cholesterol (CAD)|1|210|CD:390^mg/dL|90-200^90^200|H||""|F|||20080511103500|||^^^""|

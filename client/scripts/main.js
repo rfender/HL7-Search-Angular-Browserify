@@ -9,7 +9,6 @@ require('bootstrap');
 require('./services/HL7').inject(app);
 require('./directives/PatientPod').inject(app);
 require('./directives/PatientVis').inject(app);
-require('./filters/objectHighlight').inject(app);
 require('./filters/textHighlight').inject(app);
 
 app.config(function($locationProvider, $stateProvider) {

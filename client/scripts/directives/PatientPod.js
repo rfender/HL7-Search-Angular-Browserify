@@ -13,14 +13,13 @@ exports.inject = function(app) {
   return exports.directive;
 };
 
-exports.directive = function() {
+exports.directive = function($compile) {
   return {
     restrict: 'E',
-    replace: true,
+    scope: '@', // just grab the parent scope (one-way binding)
     templateUrl: '../views/patient.html',
     link: function(scope, element, attrs, ctrl) {
-      // not doing anything here. 
-      console.log('hello');
+      
     }
   };
 };

@@ -1,7 +1,12 @@
 'use strict';
 
+/**
+ * This controller works with the home.html view.
+ * It doesn't do much other than expose a method
+ * to navigate the user to the next page.
+ */
+
 exports.inject = function(app) {
-  // require('./../directives/TestDirective').inject(app);
   app.controller('TestCtrl', exports.controller);
   return exports.controller;
 };

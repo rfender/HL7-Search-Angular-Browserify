@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * This controller is implemented by the viewData.html view.
+ */
+
 exports.inject = function(app) {
 	app.controller('ViewDataCtrl', exports.controller);
 	return exports.controller;

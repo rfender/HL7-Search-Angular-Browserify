@@ -16,12 +16,11 @@
 	
 	<hr class="hr-short col-sm-12">
   
-  
-  <div ng-class="showRawHL7 ? 'col-sm-6 animate-thin' : 'col-sm-12 animate-wide' ">
+  <div ng-class="col-sm-6">
 	  <patient class="col-sm-12" ng-repeat="record in filtered = (records | filter: global.searchValue) " ng-model="record"></patient>
 	</div>
 	
-	<div ng-class="{hidden: !showRawHL7}" class="col-sm-12 col-md-6 raw-hl7">
+	<div ng-class="{hidden: !showRawHL7}" class="col-sm-12 raw-hl7">
 		  <div ng-repeat="item in rawhl7data | filter:global.searchValue" ng-bind-html="item.text | highlight:global.searchValue"></div>
 	</div>
 </div>

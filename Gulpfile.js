@@ -83,6 +83,10 @@ gulp.task('views', function() {
   gulp.src('client/views/**/*')
   // Will be put in the public/views folder
   .pipe(gulp.dest('public/views/'));
+
+  // Let's cheat and use this task to move the sample.hl7 file over (development only)
+  gulp.src('client/sample.hl7')
+  .pipe(gulp.dest('public/'));
 });
 
 // Sample task
