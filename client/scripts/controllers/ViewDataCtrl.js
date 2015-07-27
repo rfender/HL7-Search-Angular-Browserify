@@ -13,7 +13,7 @@ exports.controller = function($scope, $state, rawhl7data, hl7Models) {
 
 	$scope.title = 'HL7 Viewer';
 	$scope.showRawHL7 = false;
-	$scope.viewRawBtnLabel = ($scope.showRawHL7) ? 'Hide raw HL7' : 'Show raw HL7';
+	$scope.viewRawBtnLabel = ($scope.showRawHL7) ? 'Hide raw HL7' : 'Show raw HL7 (scroll to bottom)';
 	$scope.global = {
     searchValue: ''
   };
@@ -32,7 +32,7 @@ exports.controller = function($scope, $state, rawhl7data, hl7Models) {
 	$scope.showHideRawHL7 = function() {
 		this.showRawHL7 = !this.showRawHL7;
 
-		this.viewRawBtnLabel = (this.showRawHL7) ? 'Hide raw HL7' : 'Show raw HL7';
+		this.viewRawBtnLabel = (this.showRawHL7) ? 'Hide raw HL7' : 'Show raw HL7 (scroll to bottom)';
 
 	}
 	
