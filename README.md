@@ -3,10 +3,10 @@
 
 ## Useage:
 
-- git clone https://github.com/rfender/HL7-Search-Angular-Browserify.git HL7-Searchinator
-- cd HL7-Searchinator
-- npm install (use `sudo npm install` if you get errors)
-- gulp
+- `git clone https://github.com/rfender/HL7-Search-Angular-Browserify.git HL7-Searchinator`
+- `cd HL7-Searchinator`
+- `npm install` (use `sudo npm install` if you get errors)
+- `gulp`
 - navigate to [http://localhost:8080](http://localhost:8080)
 
 ## Includes:
