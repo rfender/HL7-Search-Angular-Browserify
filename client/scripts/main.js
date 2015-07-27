@@ -27,7 +27,7 @@ app.config(function($locationProvider, $stateProvider) {
   // This state requires retrieval of the HL7 records and conversion to a
   // readable state before we display them on screen.
   .state('viewData', {
-    url: '/second-page',
+    url: '/view-data',
     controller: require('./controllers/ViewDataCtrl').inject(app),
     templateUrl: 'views/viewData.html',
     resolve: {

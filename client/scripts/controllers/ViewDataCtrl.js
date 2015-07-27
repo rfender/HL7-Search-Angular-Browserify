@@ -24,6 +24,10 @@ exports.controller = function($scope, $state, rawhl7data, hl7Models) {
 	// in two-way databinding (atleast it did a couple of years ago).
   $scope.records = hl7Models;
 	
+	/**
+	 * This method handles showing or hiding the raw HL7 data
+	 * and changing the state of the button label
+	 */
 	var showRawFlag = false;
 	$scope.showHideRawHL7 = function() {
 		this.showRawHL7 = !this.showRawHL7;

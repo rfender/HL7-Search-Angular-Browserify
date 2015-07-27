@@ -16,9 +16,6 @@ exports.patientPropertyFilter = function() {
 
       angular.forEach(patients, function (patient, key) {
         angular.forEach(patient, function (value, key2) {
-          // if (value === phrase) {
-          //   result.push(patient);
-          // }
           value = value.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlight">$1</span>');
           return value;
         })

@@ -2,7 +2,7 @@
 
 /**
  * This directive takes the data from the patient renderModel
- * and uses it to render some visualizations.
+ * and uses it to render some visualizations using HighCharts.
  */
 
 exports.inject = function(app) {

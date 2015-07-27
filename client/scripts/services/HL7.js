@@ -18,10 +18,6 @@ exports.factory = function($http) {
       // Use the hl7 library's Parser module to parse the hl7
       var parser = new hl7.Parser({segmentSeperator: '\n'});
 
-      // Override the segmentOperator to use newlines rather
-      // than carriage returns.
-      parser.segmentSeperator = '\n';
-
       // Since we are getting a batch of records, let's store them
       // in an array and loop through each, calling the hl7 parser.parse
       // method on each and store in an array to return.
